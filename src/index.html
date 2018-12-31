@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Medical Record</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+	
+          <h1 class="text-center">Medical Record</h1>
+          <hr/>
+          <br/>
+		<h2>Authorize doctors to operate medical records</h2>
+		<p>
+		<label for="address" class="col-lg-2 control-label">Doctor's Address</label>
+        <input id="address" type="text">
+		</p>
+		<p>
+		<label for="name" class="col-lg-2 control-label">Doctor's Name</label>
+        <input id="name" type="text">
+		</p>
+		<p>
+		<label for="times" class="col-lg-2 control-label">Operation Times</label>
+        <input id="times" type="text">
+		</p>
+		<button id="give">Comfirm</button>
+		<hr/>
+        <br/>
+		
+		<h2>Add A New Medical Record</h2>
+		<p>
+		<label for="diseasetype" class="col-lg-2 control-label">Disease Type</label>
+        <input type="radio" name="diseasetype" value='Internal Medicine' checked="checked">Internal Medicine</input>
+		<input type="radio" name="diseasetype" value='Surgery'>Surgery</input>
+		<input type="radio" name="diseasetype" value='Ophthalmology and Otorhinolaryngology'>Ophthalmology and Otorhinolaryngology</input>
+		<input type="radio" name="diseasetype" value='Psychiatric'>Psychiatric</input>
+		<input type="radio" name="diseasetype" value='Dermatology'>Dermatology</input>
+		<input type="radio" name="diseasetype" value='Infectious Diseases'>Infectious Diseases</input>
+		<input type="radio" name="diseasetype" value='Others'>Others</input>
+		</p>
+		<p>
+		<label for="diseasename" class="col-lg-2 control-label">Disease Name</label>
+        <input id="diseasename" type="text">
+		</p>
+		<p>
+		<label for="diseasesymptom" class="col-lg-2 control-label">Disease Symptom</label>
+        <input id="diseasesymptom" type="text">
+		</p>
+		<p>
+		<label for="diseasetreatment" class="col-lg-2 control-label">Disease Treatment</label>
+        <input id="diseasetreatment" type="text">
+		</p>
+		<p>
+		<label for="date" class="col-lg-2 control-label">Date</label>
+        <input id="date" type="text">
+		</p>
+		<p>
+		<button id="add">Comfirm</button>
+		<hr/>
+        <br/>
+		<h2>Get Medical Record</h2>
+		<p>
+		<label for="type" class="col-lg-2 control-label">Disease Type</label>
+        <input type="radio" name="type" value='Internal Medicine' checked="checked">Internal Medicine</input>
+		<input type="radio" name="type" value='Surgery'>Surgery</input>
+		<input type="radio" name="type" value='Ophthalmology and Otorhinolaryngology'>Ophthalmology and Otorhinolaryngology</input>
+		<input type="radio" name="type" value='Psychiatric'>Psychiatric</input>
+		<input type="radio" name="type" value='Dermatology'>Dermatology</input>
+		<input type="radio" name="type" value='Infectious Diseases'>Infectious Diseases</input>
+		<input type="radio" name="type" value='Others'>Others</input>
+		</p>
+		<button id="get">Comfirm</button>
+		<hr/>
+        <br/>
+		<h2>Result</h2>
+		<textarea cols="100" rows="50" readonly="readonly" id="result" ></textarea>
+		<hr/>
+        <br/>
+		
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
