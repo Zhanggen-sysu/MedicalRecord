@@ -45,9 +45,9 @@ App = {
 	$(document).on('click', '#add', App.handleAdd);
 	$(document).on('click', '#get', App.handleGet);
   },
-  
+
   handleGive: function(){
-	  
+
 	  var MedicalRecordInstance;
 	  var address = document.getElementById("address").value;
 	  var name = document.getElementById("name").value;
@@ -60,9 +60,9 @@ App = {
 		alert("Operation tiems should be Positive integer");
 	  }
 	  else{
-  
+
 		var account = web3.eth.getCoinbase();
-		  
+
 		App.contracts.MedicalRecord.deployed()
 		.then(function(instance){
 			MedicalRecordInstance = instance;
@@ -73,11 +73,11 @@ App = {
 			alert(err.message);
 		});
 	  }
-	  
+
   },
-  
+
   handleAdd: function(){
-	
+
 	var MedicalRecordInstance;
 	var diseasetypes = document.getElementsByName("diseasetype");
 	var diseasetype;
@@ -94,9 +94,9 @@ App = {
 		alert("Input cannot be empty");
 	}
 	else{
-		
+
 		var account = web3.eth.getCoinbase();
-		
+
 		App.contracts.MedicalRecord.deployed()
 		.then(function(instance){
 			MedicalRecordInstance = instance;
@@ -106,17 +106,26 @@ App = {
 		}).catch(function(err) {
 			alert(err.message);
 		});
-		
+
 	}
-	
+
   },
-  
+
+  eventCallBack:function(error, result){
+		if(!error){
+
+			var t = document.getElementById("result");
+			t.value = result.args._value;
+
+		}
+	},
+
   handleGet: function(){
 	var MedicalRecordInstance;
 	var diseasetypes = document.getElementsByName("diseasetype");
 	var diseasetype;
 	var result = document.getElementById("result");
-	result.value = "  "; 
+	result.value = "  ";
 	var owner;
 	var ret;
 	for(var i = 0; i < diseasetypes.length; i ++){
@@ -125,12 +134,14 @@ App = {
 		}
 	}
 	var account = web3.eth.getCoinbase();
-		
+
 		App.contracts.MedicalRecord.deployed()
 		.then(function(instance){
 			MedicalRecordInstance = instance;
+			event = MedicalRecordInstance.returnValue();
+			event.watch(App.eventCallBack);
 			return MedicalRecordInstance.getRecord(diseasetype,{from: account});
-		}).then(function(owner,ret) {
+		}).then(function(ret) {
 			console.log(ret);
 		}).catch(function(err) {
 			alert(err.message);
